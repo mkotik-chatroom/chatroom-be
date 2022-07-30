@@ -3,7 +3,7 @@ const cors = require("cors");
 const app = express();
 const http = require("http");
 const server = http.createServer(app);
-const port = process.env.PORT || 5050;
+const port = process.env.PORT || 8000;
 const io = require("socket.io")(server, {
   cors: {
     origin: "*",
@@ -32,6 +32,6 @@ io.on("connection", (socket) => {
   );
 });
 
-server.listen(PORT, () => {
-  console.log(`listening on port ${PORT}`);
+server.listen(port, () => {
+  console.log(`listening on port ${port}`);
 });
