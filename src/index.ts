@@ -3,6 +3,7 @@ const cors = require("cors");
 const app = express();
 const http = require("http");
 const server = http.createServer(app);
+const port = process.env.PORT || 5050;
 const io = require("socket.io")(server, {
   cors: {
     origin: "*",
@@ -13,13 +14,15 @@ const io = require("socket.io")(server, {
   },
 });
 
+app.get("/", (req, res) => {
+  res.send("server works!");
+});
+
 io.on("connection", (socket) => {
   console.log("a user connected");
   socket.on("disconnect", () => {
     socket.removeAllListeners();
   });
-
-  console.log(socket);
 
   socket.on(
     "message",
@@ -29,6 +32,6 @@ io.on("connection", (socket) => {
   );
 });
 
-server.listen(5050, () => {
-  console.log("listening on *:5050");
+server.listen(PORT, () => {
+  console.log(`listening on port ${PORT}`);
 });
