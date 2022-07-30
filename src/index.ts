@@ -1,15 +1,34 @@
 const express = require("express");
 const cors = require("cors");
-const server = express();
-
-const port = process.env.PORT || 8000;
-
-server.use(cors());
-
-server.get("/", (req, res) => {
-  res.send("Server works!");
+const app = express();
+const http = require("http");
+const server = http.createServer(app);
+const io = require("socket.io")(server, {
+  cors: {
+    origin: "*",
+    methods: ["GET", "POST"],
+    extraHeaders: {
+      "Access-Control-Allow-Credentials": "true",
+    },
+  },
 });
 
-server.listen(port, () => {
-  console.log(`server listening on port ${port}`);
+io.on("connection", (socket) => {
+  console.log("a user connected");
+  socket.on("disconnect", () => {
+    socket.removeAllListeners();
+  });
+
+  console.log(socket);
+
+  socket.on(
+    "message",
+    ({ name, message }: { name: string; message: string }) => {
+      io.emit("message", { name, message });
+    }
+  );
+});
+
+server.listen(5050, () => {
+  console.log("listening on *:5050");
 });
