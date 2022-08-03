@@ -2,10 +2,6 @@
 
 # WhipChat
 
-<div style="width:10px; height:10px; background-color:red">
-<p>hi</p>
-<p>bye</p>
-</div>
 WhipChat is a video chat application that seeks to connect users with peers in their local area.
 
 This repository holds the backend code to WhipChat. The primary feature of this codebase is a websocket server, powered by [socket.io](https://socket.io/) which handles real-time data communication between server and clients.
