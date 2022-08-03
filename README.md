@@ -1,3 +1,5 @@
+![alt text](./banner.png)
+
 # PalPal
 
 PalPal is a video chat application that seeks to connect users with peers in their local area.
