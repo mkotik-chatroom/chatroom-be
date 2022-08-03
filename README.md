@@ -36,7 +36,7 @@ yarn run server
 
 Feel free to open an issue or contact me using the information below:
 
-_Marat Kotik_
+_Marat Kotik_  
 *mkotik97@gmail.com*
 
 ## Contributing
