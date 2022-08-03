@@ -1,10 +1,10 @@
 ![alt text](./banner.png)
 
-# PalPal
+# WhipChat
 
-PalPal is a video chat application that seeks to connect users with peers in their local area.
+WhipChat is a video chat application that seeks to connect users with peers in their local area.
 
-This repository holds the backend code to PalPal. The primary feature of this codebase is a websocket server, powered by [socket.io](https://socket.io/) which handles real-time data communication between server and clients.
+This repository holds the backend code to WhipChat. The primary feature of this codebase is a websocket server, powered by [socket.io](https://socket.io/) which handles real-time data communication between server and clients.
 
 ## Installation
 
