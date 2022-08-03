@@ -2,7 +2,7 @@
 
 # WhipChat
 
-<div>
+<div style="width:10px; height:10px; background-color:red">
 <p>hi</p>
 <p>bye</p>
 </div>
