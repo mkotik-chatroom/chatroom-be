@@ -30,6 +30,10 @@ io.on("connection", (socket) => {
       io.emit("message", { name, message });
     }
   );
+
+  socket.on("typing", () => {
+    socket.broadcast.emit("typing");
+  });
 });
 
 server.listen(port, () => {
