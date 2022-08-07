@@ -18,7 +18,7 @@ phases:
     commands:
       # - yarn test
       # - yarn build
-      - tsc src/index.ts
+      - npx tsc src/index.ts
 artifacts:
   files:
     - "**/*"
