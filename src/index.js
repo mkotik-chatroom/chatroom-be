@@ -14,7 +14,7 @@ var io = require("socket.io")(server, {
     }
 });
 app.get("/", function (req, res) {
-    res.send("server works well!");
+    res.send("server works really well!");
 });
 io.on("connection", function (socket) {
     console.log("a user connected");

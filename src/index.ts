@@ -15,7 +15,7 @@ const io = require("socket.io")(server, {
 });
 
 app.get("/", (req, res) => {
-  res.send("server works really well!");
+  res.send("server works really really well!");
 });
 
 io.on("connection", (socket) => {
