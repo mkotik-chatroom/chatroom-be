@@ -5,30 +5,32 @@ var http = require("http");
 var server = http.createServer(app);
 var port = process.env.PORT || 8000;
 var io = require("socket.io")(server, {
-    cors: {
-        origin: "*",
-        methods: ["GET", "POST"],
-        extraHeaders: {
-            "Access-Control-Allow-Credentials": "true"
-        }
-    }
+  cors: {
+    origin: "*",
+    methods: ["GET", "POST"],
+    extraHeaders: {
+      "Access-Control-Allow-Credentials": "true",
+    },
+  },
 });
+// test
 app.get("/", function (req, res) {
-    res.send("server works really well!");
+  res.send("server works really well!");
 });
 io.on("connection", function (socket) {
-    console.log("a user connected");
-    socket.on("disconnect", function () {
-        socket.removeAllListeners();
-    });
-    socket.on("message", function (_a) {
-        var name = _a.name, message = _a.message;
-        io.emit("message", { name: name, message: message });
-    });
-    socket.on("typing", function () {
-        socket.broadcast.emit("typing");
-    });
+  console.log("a user connected");
+  socket.on("disconnect", function () {
+    socket.removeAllListeners();
+  });
+  socket.on("message", function (_a) {
+    var name = _a.name,
+      message = _a.message;
+    io.emit("message", { name: name, message: message });
+  });
+  socket.on("typing", function () {
+    socket.broadcast.emit("typing");
+  });
 });
 server.listen(port, function () {
-    console.log("listening on port ".concat(port));
+  console.log("listening on port ".concat(port));
 });
